@@ -87,16 +87,18 @@ class Inventory:
     the array. If the _products list is emtpy, it should return None.
     '''
     def find_max_price(self) -> Optional[Product]:
-        if len(self._products) == 0:
+        if self.get_total_products() == 0:
             return None
-        
-        best = self._products[0]
 
-        for i in range(1, len(self._products)):
-            if self._products[i].price > best.price:
-                best = self._products[i]
+        best = self.get_product(0)
+
+        for i in range(1, self.get_total_products()):
+            current = self.get_product(i)    
             
-            return best
+            if current.price > best.price:
+                best = current
+
+        return best
     '''
     This function should return the product in a given Inventory object with
     the largest investment, defined as stock*price. 
