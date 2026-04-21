@@ -155,7 +155,7 @@ class Inventory:
         for i in range(len(self._products)):
             result += str(self._products[i])
             if i != len(self._products) - 1:
-                result += ", "
+                result += "\n"
 
         return result
 
