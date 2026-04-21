@@ -151,12 +151,14 @@ class Inventory:
     '''
     def __str__(self) -> str:
         result = ""
+        
+        for i in range(self.get_total_products()):
+            product = self.get_product(i)
+            result += str(product)
 
-        for i in range(len(self._products)):
-            result += str(self._products[i])
-            if i != len(self._products) - 1:
+            if i != self.get_total_products() - 1:
                 result += "\n"
-
+        
         return result
 
 if __name__ == "__main__":
